@@ -1,0 +1,131 @@
+.dashboard {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+.dashboard h2 {
+    text-align: center;
+}
+
+.centers-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.centers-list li {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.centers-list li h3 {
+    margin-top: 0;
+}
+
+.centers-list li p {
+    margin-bottom: 0;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-container input {
+    flex-grow: 1;
+    height: 36px;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.search-container button {
+    margin-left: 10px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #45a049;
+}
+.logout-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #dc3545;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}
+
+.centers-list li {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    /* Make the borders round */
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.centers-list li button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #28a745;
+    margin: 5px;
+    /* Change the button background color to green */
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.centers-list li button:hover {
+    background-color: #218838;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logout-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #dc3545;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}
+
+.add-new-center-button {
+    background-color: #4caf50;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.add-new-center-button:hover {
+    background-color: #45a049;
+}

@@ -1,23 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Center from "./components/Center";
+import { Route, Routes } from "react-router-dom";
+import Login from "./components/Login";
+import Dashboard from "./components/Dashboard";
+import Signup from "./components/Signup";
+import AdminDashboard from "./components/AdminDashboard";
+import AddNewCenter from "./components/AddNewCenter";
+import AdminCenter from "./components/AdminCenter";
 
 function App() {
+  const [user, setUser] = useState({});
+  const [adminUser, setAdminUser] = useState({});
+  const [isAdmin, setisAdmin] = useState("false");
+
+  let returnthis;
+  if (user._id) {
+    returnthis = <Dashboard setUser={setUser} user={user}></Dashboard>;
+  } else if (isAdmin && adminUser._id) {
+    returnthis = (
+      <AdminDashboard
+        adminUser={adminUser}
+        setUser={setAdminUser}
+      ></AdminDashboard>
+    );
+  } else {
+    returnthis = (
+      <Login
+        setUser={setUser}
+        setAdminUser={setAdminUser}
+        setisAdmin={setisAdmin}
+      />
+    );
+  }
+  let createcenter;
+  if (adminUser) {
+    createcenter = <AddNewCenter user={adminUser} />;
+  }
+  let centerpath;
+  if (user._id) {
+    centerpath = <Center user={user} setUser={setUser} />;
+  } else if (adminUser._id) {
+    centerpath = (
+      <AdminCenter user={adminUser} setUser={setAdminUser}></AdminCenter>
+    );
+  } else {
+    centerpath = (
+      <Login
+        setUser={setUser}
+        setAdminUser={setAdminUser}
+        setisAdmin={setisAdmin}
+      />
+    );
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path="/" element={returnthis}></Route>
+        <Route path="/center/:id" element={centerpath}></Route>
+        <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/admin/addnewcenter" element={createcenter}></Route>
+        <Route path="/admin/center/:id" element={centerpath}></Route>
+      </Routes>
     </div>
   );
 }

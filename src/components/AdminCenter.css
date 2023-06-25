@@ -1,0 +1,181 @@
+/* Center.css */
+
+.center {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.center h3 {
+    margin-top: 0;
+}
+
+.center p {
+    margin-bottom: 8px;
+}
+
+.date-picker {
+    margin-bottom: 16px;
+}
+
+.date-picker label {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.slots-container {
+    margin-top: 16px;
+}
+
+.slots-container h4 {
+    margin-bottom: 8px;
+}
+
+.slot {
+    margin-right: 8px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f2f2f2;
+    color: #000;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.slot:hover {
+    background-color: #e2e2e2;
+}
+
+.slot.booked {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Center.css */
+
+.date-picker {
+    margin-bottom: 16px;
+}
+
+.date-picker__label {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.date-picker__input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Center.css */
+
+.center {
+    position: relative;
+}
+
+.logout-button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 8px 16px;
+    background-color: #f2f2f2;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: #e2e2e2;
+}
+
+/* Center.css */
+
+.home-button {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 8px 16px;
+    background-color: #f2f2f2;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.home-button:hover {
+    background-color: #e2e2e2;
+}
+
+/* Center.css */
+
+/* Center.css */
+
+.center__title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.center__location {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.center__working-hours {
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+/* Center.css */
+
+.center {
+    padding: 16px;
+}
+
+/* Login.css */
+
+.signup-link {
+    text-align: center;
+    margin-top: 16px;
+}
+
+.signup-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.find-slot-button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.find-slot-button:hover {
+    background-color: #45a049;
+}
+
+.find-slot-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

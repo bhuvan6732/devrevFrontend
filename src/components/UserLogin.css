@@ -1,0 +1,80 @@
+.login.user {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.login.user h2 {
+    color: #333;
+}
+
+.login.user label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.login.user input[type="text"],
+.login.user input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login.user button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login.user button:hover {
+    background-color: #45a049;
+}
+
+.login.user {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.login.user h2 {
+    color: #333;
+}
+
+.login.user label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.login.user input[type="text"],
+.login.user input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login.user button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login.user button:hover {
+    background-color: #45a049;
+}
+.user .error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+}
