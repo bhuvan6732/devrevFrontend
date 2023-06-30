@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import "./Center.css"; // Import the CSS file
-import VaccineDataServices from "./services/vaccines";
-import { Link, useParams } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import './Center.css'; // Import the CSS file
+import VaccineDataServices from './services/vaccines';
+import { Link, useParams } from 'react-router-dom';
 const Center = (props) => {
   const params = useParams();
   const allSlots = Array.from({ length: 9 }, (_, index) => {
     const hour = index + 10;
-    const time = `${hour.toString().padStart(2, "0")}:00 ${
-      hour < 12 ? "AM" : "PM"
+    const time = `${hour.toString().padStart(2, '0')}:00 ${
+      hour < 12 ? 'AM' : 'PM'
     }`;
     return time;
   });
@@ -50,13 +50,13 @@ const Center = (props) => {
     }
   };
 
-  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedDate, setSelectedDate] = useState('');
   const [selectedSlot, setSelectedSlot] = useState(null);
   const [showButton, setShowButton] = useState(false);
   const handleDateChange = (event) => {
     setSelectedDate(event.target.value);
     setShowButton(true);
-    setSelectedSlot(null); // Reset selected slot when the date changes
+    setSelectedSlot(null);
   };
   const handleButtonClicked = () => {
     const obj = {
@@ -66,7 +66,6 @@ const Center = (props) => {
     getAvailableSlots(obj);
   };
   const handleLogout = () => {
-    // Handle logout logic
     props.setUser({});
   };
 
@@ -95,7 +94,7 @@ const Center = (props) => {
           className="date-picker__input"
           value={selectedDate}
           onChange={handleDateChange}
-          min={new Date().toISOString().split("T")[0]} // Set minimum date as today
+          min={new Date().toISOString().split('T')[0]}
         />
       </div>
       {showButton && (
@@ -115,7 +114,7 @@ const Center = (props) => {
               return (
                 <button
                   key={index}
-                  className={`slot ${isSelected ? "selected" : ""}`}
+                  className={`slot ${isSelected ? 'selected' : ''}`}
                   onClick={() => handleSlotBooking(selectedDate, time)}
                   disabled={isSelected}
                 >

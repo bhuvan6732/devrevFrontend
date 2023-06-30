@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import "./Signup.css";
-import VaccineDataServices from "./services/vaccines";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import './Signup.css';
+import VaccineDataServices from './services/vaccines';
+import { Link } from 'react-router-dom';
 const Signup = (props) => {
   const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-    rePassword: "",
+    username: '',
+    email: '',
+    password: '',
+    rePassword: '',
   });
 
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const { username, email, password, rePassword } = formData;
 
   const handleChange = (e) => {
@@ -23,16 +23,16 @@ const Signup = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      username.trim() === "" ||
-      email.trim() === "" ||
-      password.trim() === "" ||
-      rePassword.trim() === ""
+      username.trim() === '' ||
+      email.trim() === '' ||
+      password.trim() === '' ||
+      rePassword.trim() === ''
     ) {
-      setError("Please fill in all fields");
+      setError('Please fill in all fields');
       return;
     }
     if (password !== rePassword) {
-      setError("Passwords do not match");
+      setError('Passwords do not match');
       return;
     }
     const obj = {
@@ -43,12 +43,12 @@ const Signup = (props) => {
     };
     VaccineDataServices.userSignup(obj).then((data) => {
       if (data.data.acknowledged) {
-        setError("User created successfully.. Login to proceed");
+        setError('User created successfully.. Login to proceed');
         setFormData({
-          username: "",
-          email: "",
-          password: "",
-          rePassword: "",
+          username: '',
+          email: '',
+          password: '',
+          rePassword: '',
         });
       } else {
         setError(data.data.message);
@@ -59,16 +59,16 @@ const Signup = (props) => {
   const handleSubmitforadmin = (e) => {
     e.preventDefault();
     if (
-      username.trim() === "" ||
-      email.trim() === "" ||
-      password.trim() === "" ||
-      rePassword.trim() === ""
+      username.trim() === '' ||
+      email.trim() === '' ||
+      password.trim() === '' ||
+      rePassword.trim() === ''
     ) {
-      setError("Please fill in all fields");
+      setError('Please fill in all fields');
       return;
     }
     if (password !== rePassword) {
-      setError("Passwords do not match");
+      setError('Passwords do not match');
       return;
     }
     const obj = {
@@ -79,12 +79,12 @@ const Signup = (props) => {
     };
     VaccineDataServices.adminSignup(obj).then((data) => {
       if (data.data.acknowledged) {
-        setError("Admin User created successfully.. Login to proceed");
+        setError('Admin User created successfully.. Login to proceed');
         setFormData({
-          username: "",
-          email: "",
-          password: "",
-          rePassword: "",
+          username: '',
+          email: '',
+          password: '',
+          rePassword: '',
         });
       } else {
         setError(data.data.message);
@@ -93,7 +93,7 @@ const Signup = (props) => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">

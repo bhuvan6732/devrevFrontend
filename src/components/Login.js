@@ -1,23 +1,23 @@
-import React, { useState } from "react";
-import "./Login.css"; // Import common CSS styles
-import "./UserLogin.css"; // Import user-specific CSS styles
-import "./AdminLogin.css"; // Import admin-specific CSS styles
-import VaccineDataServices from "./services/vaccines";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import './Login.css'; // Import common CSS styles
+import './UserLogin.css'; // Import user-specific CSS styles
+import './AdminLogin.css'; // Import admin-specific CSS styles
+import VaccineDataServices from './services/vaccines';
+import { Link } from 'react-router-dom';
 const Login = (props) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [isAdmin, setIsAdmin] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
-    setError("");
+    setError('');
   };
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
-    setError("");
+    setError('');
   };
 
   const handleTabSwitch = (adminLogin) => {
@@ -26,8 +26,8 @@ const Login = (props) => {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    if (username.trim() === "" || password.trim() === "") {
-      setError("Please enter both username and password.");
+    if (username.trim() === '' || password.trim() === '') {
+      setError('Please enter both username and password.');
       return;
     }
     // Perform login logic here based on username, password, and isAdmin
@@ -36,10 +36,10 @@ const Login = (props) => {
       VaccineDataServices.loginUser(requestBody).then((data) => {
         if (data.data.user) {
           props.setUser(data.data.user);
-          setUsername("");
-          setPassword("");
+          setUsername('');
+          setPassword('');
         } else {
-          setError("Invalid user name and password");
+          setError('Invalid user name and password');
         }
       });
     }
@@ -48,34 +48,34 @@ const Login = (props) => {
         if (data.data) {
           props.setAdminUser(data.data);
           props.setisAdmin(true);
-          setUsername("");
-          setPassword("");
+          setUsername('');
+          setPassword('');
         } else {
-          setError("Invalid user name and password");
+          setError('Invalid user name and password');
         }
       });
     }
   };
 
-  const loginHeaderText = isAdmin ? "Admin Login" : "User Login";
+  const loginHeaderText = isAdmin ? 'Admin Login' : 'User Login';
 
   return (
     <div className="login-container">
       <nav className="login-navbar">
         <button
-          className={`tab-button ${!isAdmin ? "active" : ""}`}
+          className={`tab-button ${!isAdmin ? 'active' : ''}`}
           onClick={() => handleTabSwitch(false)}
         >
           User Login
         </button>
         <button
-          className={`tab-button ${isAdmin ? "active" : ""}`}
+          className={`tab-button ${isAdmin ? 'active' : ''}`}
           onClick={() => handleTabSwitch(true)}
         >
           Admin Login
         </button>
       </nav>
-      <div className={`login ${isAdmin ? "admin" : "user"}`}>
+      <div className={`login ${isAdmin ? 'admin' : 'user'}`}>
         <h2>{loginHeaderText}</h2>
         <form onSubmit={handleLogin}>
           <label htmlFor="username">Username:</label>
@@ -98,7 +98,7 @@ const Login = (props) => {
           {error && (
             <p
               className={`error-message ${
-                isAdmin ? "admin-error" : "user-error"
+                isAdmin ? 'admin-error' : 'user-error'
               }`}
             >
               {error}

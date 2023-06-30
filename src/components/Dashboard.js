@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import "./Dashboard.css"; // Import the CSS file
-import VaccineDataServices from "./services/vaccines";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import './Dashboard.css'; // Import the CSS file
+import VaccineDataServices from './services/vaccines';
+import { Link } from 'react-router-dom';
 const Dashboard = (props) => {
   const [centersList, setCentersList] = useState([]);
   function getCenters() {
@@ -11,7 +11,7 @@ const Dashboard = (props) => {
     });
   }
   useEffect(getCenters, []);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
   const [filteredCenters, setFilteredCenters] = useState(centersList);
 
   const handleSearchTermChange = (event) => {
@@ -24,12 +24,7 @@ const Dashboard = (props) => {
     });
   };
 
-  const handleBookSlots = (center) => {
-    //
-  };
-
   const handleLogout = () => {
-    // Handle logout
     props.setUser({});
   };
 
@@ -56,7 +51,7 @@ const Dashboard = (props) => {
             <h3>{center.city}</h3>
             <p>Location: {center.area}</p>
             <p>Working Hours:{center.workinghours}</p>
-            <Link to={"/center/" + center._id} type="button">
+            <Link to={'/center/' + center._id} type="button">
               Book Slots
             </Link>
           </li>

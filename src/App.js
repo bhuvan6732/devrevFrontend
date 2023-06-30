@@ -1,19 +1,22 @@
-import { useState } from "react";
-import Center from "./components/Center";
-import { Route, Routes } from "react-router-dom";
-import Login from "./components/Login";
-import Dashboard from "./components/Dashboard";
-import Signup from "./components/Signup";
-import AdminDashboard from "./components/AdminDashboard";
-import AddNewCenter from "./components/AddNewCenter";
-import AdminCenter from "./components/AdminCenter";
+import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+
+import Center from './components/Center';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+import Signup from './components/Signup';
+import AdminDashboard from './components/AdminDashboard';
+import AddNewCenter from './components/AddNewCenter';
+import AdminCenter from './components/AdminCenter';
 
 function App() {
   const [user, setUser] = useState({});
   const [adminUser, setAdminUser] = useState({});
-  const [isAdmin, setisAdmin] = useState("false");
+  const [isAdmin, setisAdmin] = useState('false');
 
   let returnthis;
+  let createcenter;
+
   if (user._id) {
     returnthis = <Dashboard setUser={setUser} user={user}></Dashboard>;
   } else if (isAdmin && adminUser._id) {
@@ -32,7 +35,7 @@ function App() {
       />
     );
   }
-  let createcenter;
+
   if (adminUser) {
     createcenter = <AddNewCenter user={adminUser} />;
   }

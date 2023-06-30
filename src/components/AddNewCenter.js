@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import "./AddNewCenter.css"; // Import the CSS file
-import VaccineDataServices from "./services/vaccines";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import './AddNewCenter.css'; // Import the CSS file
+import VaccineDataServices from './services/vaccines';
+import { Link } from 'react-router-dom';
 
 const AddNewCenter = (props) => {
   const [centerData, setCenterData] = useState({
-    name: "",
-    contact: "",
-    city: "",
-    area: "",
-    numberofvaccine: "",
-    workinghours: "",
+    name: '',
+    contact: '',
+    city: '',
+    area: '',
+    numberofvaccine: '',
+    workinghours: '',
   });
-  const [formError, setFormError] = useState("");
+  const [formError, setFormError] = useState('');
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -32,13 +32,13 @@ const AddNewCenter = (props) => {
       !centerData.numberofvaccine ||
       !centerData.workinghours
     ) {
-      setFormError("All fields are required");
+      setFormError('All fields are required');
       return;
     }
 
     // Check if number of vaccines is greater than zero
     if (parseInt(centerData.numberofvaccine) <= 0) {
-      setFormError("Number of vaccines should be greater than zero");
+      setFormError('Number of vaccines should be greater than zero');
       return;
     }
 
@@ -56,16 +56,15 @@ const AddNewCenter = (props) => {
     };
     VaccineDataServices.addCenter(addcenterobj).then((data) => {
       setCenterData({
-        name: "",
-        contact: "",
-        city: "",
-        area: "",
-        numberofvaccine: "",
-        workinghours: "",
+        name: '',
+        contact: '',
+        city: '',
+        area: '',
+        numberofvaccine: '',
+        workinghours: '',
       });
-      setFormError("");
+      setFormError('Center added succesfully');
     });
-    // Reset form fields
   };
 
   return (

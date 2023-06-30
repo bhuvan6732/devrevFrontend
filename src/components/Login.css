@@ -38,11 +38,6 @@
     background-color: #45a049;
 }
 
-.login-container {
-    max-width: 400px;
-    margin: 0 auto;
-}
-
 .login-navbar {
     display: flex;
     justify-content: center;
@@ -66,3 +61,97 @@
     background-color: #4caf50;
     color: white;
 }
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+/* 
+.login-navbar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background-color: #f1f1f1;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.tab-button:hover {
+    background-color: #ddd;
+}
+
+.tab-button.active {
+    background-color: #4caf50;
+    color: white;
+}
+
+.login {
+    margin: 0 auto;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.login h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login button {
+    width: 100%;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login button:hover {
+    background-color: #45a049;
+}
+
+.login .error-message {
+    color: red;
+    margin-top: 1rem;
+}
+
+.login .admin-error {
+    color: #ff0000;
+}
+
+.login .user-error {
+    color: #ff3333;
+}
+
+.login .signup-link {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.login .signup-link a {
+    color: #007bff;
+} */

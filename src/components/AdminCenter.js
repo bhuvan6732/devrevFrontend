@@ -1,20 +1,15 @@
-import React, { useEffect, useState } from "react";
-import "./AdminCenter.css"; // Import the CSS file
-import VaccineDataServices from "./services/vaccines";
-import { Link, useParams } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import './AdminCenter.css'; // Import the CSS file
+import VaccineDataServices from './services/vaccines';
+import { Link, useParams } from 'react-router-dom';
 const Center = (props) => {
   const params = useParams();
-  const allSlots = Array.from({ length: 9 }, (_, index) => {
-    const hour = index + 10;
-    const time = `${hour.toString().padStart(2, "0")}:00 ${
-      hour < 12 ? "AM" : "PM"
-    }`;
-    return time;
-  });
 
   const [centerData, setCenterData] = useState({});
-  const [availableSlots, setAvailableSlots] = useState([]);
   const [existingSlots, setExistingSlots] = useState([]);
+  const [selectedDate, setSelectedDate] = useState('');
+  const [showButton, setShowButton] = useState(false);
+
   function getcenterData() {
     VaccineDataServices.get(params.id).then((data) => {
       setCenterData(data.data);
@@ -25,44 +20,15 @@ const Center = (props) => {
   function getAvailableSlots(obj) {
     VaccineDataServices.getSlots(obj).then((data) => {
       const existingSlots1 = data.data.map(
-        (item) => item.time + " Is booked by " + item.userid
+        (item) => item.time + ' Is booked by ' + item.userid
       );
       setExistingSlots(existingSlots1);
-      const newarr = allSlots.filter((slot) => !existingSlots.includes(slot));
-      setAvailableSlots(newarr);
     });
   }
 
-  const handleSlotBooking = (date, time) => {
-    const confirmed = window.confirm(
-      `Do you want to book the slot ${date} ${time}?`
-    );
-    if (confirmed) {
-      // Handle slot booking logic
-      const newslot = {
-        userid: props.user._id,
-        center: params.id,
-        date: date,
-        time: time,
-      };
-
-      VaccineDataServices.addSlots(newslot).then((data) => {
-        const obj = {
-          centerid: params.id,
-          date: selectedDate,
-        };
-        getAvailableSlots(obj);
-      });
-    }
-  };
-
-  const [selectedDate, setSelectedDate] = useState("");
-  const [selectedSlot, setSelectedSlot] = useState(null);
-  const [showButton, setShowButton] = useState(false);
   const handleDateChange = (event) => {
     setSelectedDate(event.target.value);
     setShowButton(true);
-    setSelectedSlot(null); // Reset selected slot when the date changes
   };
   const handleButtonClicked = () => {
     const obj = {
@@ -100,7 +66,7 @@ const Center = (props) => {
           className="date-picker__input"
           value={selectedDate}
           onChange={handleDateChange}
-          min={new Date().toISOString().split("T")[0]} // Set minimum date as today
+          min={new Date().toISOString().split('T')[0]} // Set minimum date as today
         />
       </div>
       {showButton && (
@@ -113,16 +79,8 @@ const Center = (props) => {
           <>
             <h4 className="slots-container__heading">Booked Slots:</h4>
             {existingSlots.map((time, index) => {
-              const isSelected =
-                selectedSlot &&
-                selectedSlot.date === selectedDate &&
-                selectedSlot.time === time;
               return (
-                <div
-                  key={index}
-                  className={`slot ${isSelected ? "selected" : ""}`}
-                  disabled={isSelected}
-                >
+                <div key={index} className="slot ">
                   {time}
                 </div>
               );

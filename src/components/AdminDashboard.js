@@ -1,16 +1,12 @@
-import React, { useEffect, useState } from "react";
-import "./Dashboard.css"; // Import the CSS file
-import VaccineDataServices from "./services/vaccines";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import './Dashboard.css'; // Import the CSS file
+import VaccineDataServices from './services/vaccines';
+import { Link } from 'react-router-dom';
 
 const Dashboard = (props) => {
   const [centersList, setCentersList] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
   const [filteredCenters, setFilteredCenters] = useState([]);
-
-  useEffect(() => {
-    getCenters();
-  }, []);
 
   const getCenters = () => {
     VaccineDataServices.getAllCenter()
@@ -19,9 +15,13 @@ const Dashboard = (props) => {
         setFilteredCenters(data.data);
       })
       .catch((error) => {
-        console.log("Error retrieving centers:", error);
+        console.log('Error retrieving centers:', error);
       });
   };
+
+  useEffect(() => {
+    getCenters();
+  }, []);
 
   const handleSearchTermChange = (event) => {
     setSearchTerm(event.target.value);
@@ -34,12 +34,7 @@ const Dashboard = (props) => {
     setFilteredCenters(filtered);
   };
 
-  const handleBookSlots = (center) => {
-    // Handle slot booking
-  };
-
   const handleDeleteCenter = (centerId) => {
-    // Handle center deletion
     const deleteobj = {
       _id: centerId,
     };
@@ -48,12 +43,11 @@ const Dashboard = (props) => {
         getCenters();
       })
       .catch((error) => {
-        console.log("Error deleting center:", error);
+        console.log('Error deleting center:', error);
       });
   };
 
   const handleLogout = () => {
-    // Handle logout
     props.setUser({});
   };
 
@@ -85,7 +79,7 @@ const Dashboard = (props) => {
             <h3>{center.city}</h3>
             <p>Location: {center.area}</p>
             <p>Working Hours: {center.workinghours}</p>
-            <Link to={"/admin/center/" + center._id} type="button">
+            <Link to={'/admin/center/' + center._id} type="button">
               View Slots Booked
             </Link>
             <button
